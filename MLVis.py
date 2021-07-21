@@ -202,3 +202,14 @@ properties = [
     [lambda x: x.kernel.shape, 'Kernel shape'],
     [lambda x: x.kernel.numpy().size, 'Number of weights']
 ]
+edge_defaults = dict(smooth=True)
+
+groups = []
+def V(visualization, x, **kwargs):
+    name = type(x).__name__
+    if name not in groups:
+        groups.append(name)
+    g = groups.index(name)
+    defaults = dict(shape='box')
+    kwargs = defaults | kwargs
+    visualization.add_node(group=g, **kwargs)
