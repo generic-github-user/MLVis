@@ -197,4 +197,8 @@ properties = [
     ['shape', 'Shape'],
     ['input_shape', 'Input shape'],
     ['output_shape', 'Output shape'],
+    [lambda x: x.activation.__name__, 'Activation'],
+    [lambda x: type(x).__name__, 'Type'],
+    [lambda x: x.kernel.shape, 'Kernel shape'],
+    [lambda x: x.kernel.numpy().size, 'Number of weights']
 ]
