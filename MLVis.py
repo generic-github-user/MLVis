@@ -213,3 +213,21 @@ def V(visualization, x, **kwargs):
     defaults = dict(shape='box')
     kwargs = defaults | kwargs
     visualization.add_node(group=g, **kwargs)
+
+ri = np.random.randint(0, train_images.shape[0]-1)
+sample = train_images[ri:ri+1]
+print(sample.shape)
+node_id = 0
+def savefig(x, func='imshow', **kwargs):
+    global node_id
+    plt.close('all')
+    plt.style.use('fivethirtyeight')
+    fig = plt.figure()
+    ax = fig.add_subplot()
+#     ax.imshow(x)
+    getattr(ax, func)(x, **kwargs)
+    path = f'img_cache/node_img_{node_id}.svg'
+#     plt.axis('off')
+    plt.savefig(path)
+    node_id += 1
+    return path
