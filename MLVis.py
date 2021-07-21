@@ -38,3 +38,18 @@ settings = {
     "solver": "hierarchicalRepulsion"
   }
 }
+
+
+# In[192]:
+
+
+n = 23785
+a = math.ceil(n**(1/2))
+b = n // a
+print(a*b)
+
+
+# In[193]:
+
+
+json.dumps(settings)
