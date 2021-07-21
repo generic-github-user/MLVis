@@ -250,3 +250,12 @@ for L in model.layers:
         
         if val:
             info.append(f'{display}: {val}')
+#     weights = L.get_weights()
+    weights = L.weights
+    options = dict(
+        shape='box',
+        font=dict(multi=True, bold=dict(size=20))
+    )
+#     plt.hist()
+    
+    V(vis, L, n_id=id(L), label='\n'.join(info), **options)
