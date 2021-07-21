@@ -1,4 +1,6 @@
 *checkpoint*
+img_cache/*
+model-graph.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
