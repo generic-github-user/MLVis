@@ -231,3 +231,22 @@ def savefig(x, func='imshow', **kwargs):
     plt.savefig(path)
     node_id += 1
     return path
+
+# L.units.
+# L.get_weights vs weights?
+
+for L in model.layers:
+    info = []
+    for prop, display in properties:
+        val = None
+        if type(prop) is str:
+            if hasattr(L, prop):
+                val = getattr(L, prop)
+        elif callable(prop):
+            try:
+                val = prop(L)
+            except:
+                pass
+        
+        if val:
+            info.append(f'{display}: {val}')
