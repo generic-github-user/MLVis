@@ -3,7 +3,7 @@
 
 # MLVis provides tools for interactively visualizing machine learning models. It is designed to support multiple levels of abstraction, but focuses on the TensorFlow/Keras layers API. The main functionality is a web-based graph visualization of an ML model's components, which integrates various plots and statistics about each layer with intuitive representations of the model's overall structure.
 
-# In[158]:
+# In[6]:
 
 
 import tensorflow as tf
@@ -13,6 +13,16 @@ import pyvis
 import json
 import math
 from functools import reduce
+import webbrowser
+
+
+# In[2]:
+
+
+# From https://stackoverflow.com/a/6800214/10940584
+def factors(n):    
+    return set(reduce(list.__add__, 
+                ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
 settings = {
   "edges": {
     "color": {
