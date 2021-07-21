@@ -13,3 +13,28 @@ import pyvis
 import json
 import math
 from functools import reduce
+settings = {
+  "edges": {
+    "color": {
+      "inherit": True
+    },
+    "smooth": False
+  },
+  "layout": {
+    "hierarchical": {
+      "enabled": True,
+      "levelSeparation": 260,
+      "nodeSpacing": 255,
+      "treeSpacing": 195,
+      "sortMethod": "directed"
+    }
+  },
+  "physics": {
+    "enabled": False,
+    "hierarchicalRepulsion": {
+      "centralGravity": 0
+    },
+    "minVelocity": 0.75,
+    "solver": "hierarchicalRepulsion"
+  }
+}
