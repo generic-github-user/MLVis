@@ -155,7 +155,7 @@ settings = {
 }
 
 
-# In[192]:
+# In[12]:
 
 
 n = 23785
@@ -164,7 +164,37 @@ b = n // a
 print(a*b)
 
 
-# In[193]:
+# In[13]:
 
 
 json.dumps(settings)
+
+
+# In[23]:
+
+
+import tensorflow.python.ops.numpy_ops.np_config as npcfg
+npcfg.enable_numpy_behavior()
+
+
+# In[ ]:
+
+
+# for L in model.layers:
+#     if hasattr(L, 'activation'):
+#         L.activation = 
+
+
+# In[55]:
+
+
+# {'hierarchical': True}
+vis = pyvis.network.Network(width=1000, height=1000, notebook=True, directed=True, layout=settings)
+vis.set_options(json.dumps(settings, indent=4))
+properties = [
+#     ['activation', 'Activation'],
+    ['units', 'Units'],
+    ['shape', 'Shape'],
+    ['input_shape', 'Input shape'],
+    ['output_shape', 'Output shape'],
+]
