@@ -64,6 +64,35 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 train_images = train_images / 255.0
 
 test_images = test_images / 255.0
+
+
+# In[7]:
+
+
+tf.keras.backend.clear_session()
+
+
+# In[8]:
+
+
+layer_settings = dict(
+    activation='relu'
+)
+model = tf.keras.Sequential([
+#     tf.keras.layers.Flatten(input_shape=(28, 28)),
+    tf.keras.layers.InputLayer(input_shape=(28, 28)),
+    tf.keras.layers.Reshape((28, 28, 1)),
+    tf.keras.layers.Conv2D(4, 3, 1, **layer_settings),
+    tf.keras.layers.BatchNormalization(),
+    tf.keras.layers.MaxPooling2D(),
+    tf.keras.layers.Conv2D(8, 3, 1, **layer_settings),
+    tf.keras.layers.BatchNormalization(),
+    tf.keras.layers.MaxPooling2D(),
+    tf.keras.layers.Dense(128, **layer_settings),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(10, **layer_settings)
+])
+model.summary()
 settings = {
   "edges": {
     "color": {
